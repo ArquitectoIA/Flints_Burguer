@@ -1,6 +1,6 @@
 export const menu = {
   //Hamburguesas
-  "Hamburguesa Tracional": 21500,
+  "Hamburguesa Tradicional": 21500,
   "Hamburguesa Chicken": 21500,
   "Hamburguesa Especial": 27500,
   "Hamburguesa Mixta": 27500,
@@ -87,15 +87,15 @@ export const adicionales = {
 };
 
 export const bebidas = {
-  "Granizada de limon": 8000,
-  "Granizada de naranja": 8000,
-  "Granizada de mandarina": 8000,
-  "Granizada de maracuya": 8000,
-  "Granizada de yerbabuena": 8000,
-  "Jugo de mora": 10000,
-  "Jugo de fresa": 10000,
-  "Jugo de guanabana": 10000,
-  "Jugo de uva": 10000,
+  "Granizada Limón": 8000,
+  "Granizada Naranja": 8000,
+  "Granizada Mandarina": 8000,
+  "Granizada Maracuyá": 8000,
+  "Granizada Yerbabuena": 8000,
+  "Jugo Natural Mora": 10000,
+  "Jugo Natural Fresa": 10000,
+  "Jugo Natural Guanábana": 10000,
+  "Jugo Natural Uva": 10000,
   Cerezada: 10000,
   Maracumango: 10000,
 };
