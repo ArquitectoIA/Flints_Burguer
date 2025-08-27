@@ -1,4 +1,5 @@
 import { SCREEN_RESPONSES } from "./screens.js";
+import { generarDatosPedido } from "./functions.js";
 
 export const getNextScreen = async (decryptedBody) => {
   const { screen, data, version, action, flow_token } = decryptedBody;
@@ -32,28 +33,69 @@ export const getNextScreen = async (decryptedBody) => {
     // handle the request based on the current screen
     switch (screen) {
       case "SEL_MENU":
-        return {
-          ...SCREEN_RESPONSES.CANTIDADES,
-        };
+        let chkProducts = false;
+
+        for (const key in data) {
+          if (key.startsWith("chk_") && data[key] === true) {
+            chkProducts = true;
+            break;
+          }
+        }
+
+        if (chkProducts) {
+          return {
+            ...SCREEN_RESPONSES.CANTIDADES,
+            data: {
+              ...SCREEN_RESPONSES.CANTIDADES.data,
+              ...data,
+            },
+          };
+        } else {
+          return {
+            ...SCREEN_RESPONSES.BEBIDAS,
+            data: {
+              ...SCREEN_RESPONSES.BEBIDAS.data,
+              ...data,
+            },
+          };
+        }
 
       case "CANTIDADES":
         return {
           ...SCREEN_RESPONSES.ADICIONALES,
+          data: {
+            ...SCREEN_RESPONSES.ADICIONALES.data,
+            ...data,
+          },
         };
 
       case "ADICIONALES":
         return {
           ...SCREEN_RESPONSES.BEBIDAS,
+          data: {
+            ...SCREEN_RESPONSES.BEBIDAS.data,
+            ...data,
+          },
         };
 
       case "BEBIDAS":
+        const { resumenStr, totalGeneral, totalGeneralStr } =
+          generarDatosPedido(data);
         return {
           ...SCREEN_RESPONSES.FINAL,
+          data: {
+            resumen: resumenStr,
+            valorTotal: totalGeneral,
+            valorTotalStr: totalGeneralStr,
+          },
         };
 
       case "FINAL":
         return {
           ...SCREEN_RESPONSES.MET_ENTREGA,
+          data: {
+            ...data,
+          },
         };
 
       default:
