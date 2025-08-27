@@ -32,6 +32,7 @@ export const SCREEN_RESPONSES = {
       chk_p_flints: false,
       chk_p_flints_30: false,
       chk_p_sup: false,
+      chk_p_sup_30: false,
       chk_pa_pollo: false,
       chk_pa_carne: false,
       chk_pa_mix: false,
