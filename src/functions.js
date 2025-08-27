@@ -85,7 +85,7 @@ export function generarDatosPedido(data) {
     }
   });
 
-  texto += `Cantidad de empaques: ${cantidadEmpaques}`;
+  texto += `Cantidad de empaques: ${cantidadEmpaques}\n`;
   texto += `Valor empaques: ${formatCOP(valorEmpaques)}`;
 
   const totalGeneralStr = formatCOP(totalGeneral);
