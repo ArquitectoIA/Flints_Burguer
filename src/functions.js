@@ -2,6 +2,8 @@ import { menu, adicionales, bebidas } from "./menu.js";
 
 export function generarDatosPedido(data) {
   let valorProductos = 0;
+  let cantidadEmpaques = 0;
+  let valorEmpaques = 0;
   let valorAdicionales = 0;
   let valorBebidas = 0;
   let resumen = [];
@@ -13,6 +15,8 @@ export function generarDatosPedido(data) {
     const precioUnitario = menu[producto] || 0;
     const subtotal = precioUnitario * cantidad;
     valorProductos += subtotal;
+    cantidadEmpaques += 1;
+    valorEmpaques += 1000;
 
     resumen.push({
       tipo: "Producto",
@@ -54,7 +58,8 @@ export function generarDatosPedido(data) {
     });
   }
 
-  const totalGeneral = valorProductos + valorAdicionales + valorBebidas;
+  const totalGeneral =
+    valorProductos + valorEmpaques + valorAdicionales + valorBebidas;
 
   const formatCOP = (valor) =>
     `$${valor.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}`;
@@ -62,23 +67,26 @@ export function generarDatosPedido(data) {
   let texto = "";
   resumen.forEach((item) => {
     if (item.tipo === "Producto") {
-        texto += `Productos:\n`;
-        texto += `${item.cantidad} x ${item.producto}\n`;
-        texto += `Subtotal: ${formatCOP(item.precio)}\n\n`
+      texto += `Productos:\n`;
+      texto += `${item.cantidad} x ${item.producto}\n`;
+      texto += `Subtotal: ${formatCOP(item.precio)}\n\n`;
     }
 
     if (item.tipo === "Adicional") {
-        texto += `Adicionales:\n`;
-        texto += `${item.cantidad} x ${item.producto}\n`;
-        texto += `Subtotal: ${formatCOP(item.precio)}\n\n`
+      texto += `Adicionales:\n`;
+      texto += `${item.cantidad} x ${item.producto}\n`;
+      texto += `Subtotal: ${formatCOP(item.precio)}\n\n`;
     }
 
     if (item.tipo === "Bebida") {
-        texto += `Bebidas:\n`;
-        texto += `${item.cantidad} x ${item.producto}\n`;
-        texto += `Subtotal: ${formatCOP(item.precio)}\n\n`
+      texto += `Bebidas:\n`;
+      texto += `${item.cantidad} x ${item.producto}\n`;
+      texto += `Subtotal: ${formatCOP(item.precio)}\n\n`;
     }
   });
+
+  texto += `Cantidad de empaques: ${cantidadEmpaques}`;
+  texto += `Valor empaques: ${formatCOP(valorEmpaques)}`;
 
   const totalGeneralStr = formatCOP(totalGeneral);
 
