@@ -81,12 +81,15 @@ export const getNextScreen = async (decryptedBody) => {
       case "BEBIDAS":
         const { resumenStr, totalGeneral, totalGeneralStr } =
           generarDatosPedido(data);
+        const { obs_productos, obs_adicionales } = data;
         return {
           ...SCREEN_RESPONSES.FINAL,
           data: {
             resumen: resumenStr,
             valorTotal: totalGeneral,
             valorTotalStr: totalGeneralStr,
+            obsProductos: obs_productos,
+            obsAdcionales: obs_adicionales,
           },
         };
 
