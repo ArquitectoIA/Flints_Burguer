@@ -52,9 +52,9 @@ export const getNextScreen = async (decryptedBody) => {
           };
         } else {
           return {
-            ...SCREEN_RESPONSES.BEBIDAS,
+            ...SCREEN_RESPONSES.ADICIONALES,
             data: {
-              ...SCREEN_RESPONSES.BEBIDAS.data,
+              ...SCREEN_RESPONSES.ADICIONALES.data,
               ...data,
             },
           };
