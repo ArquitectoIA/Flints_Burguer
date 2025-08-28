@@ -34,6 +34,16 @@ export function generarDatosPedido(data) {
     const subtotal = precioUnitario * cantidad;
     valorAdicionales += subtotal;
 
+    if (adicionales[adicional] === "Porción de Papa Mediana") {
+      cantidadEmpaques += cantidad;
+      valorEmpaques += cantidad * 500;
+    }
+
+    if (adicionales[adicional] === "Porción de Papa Grande") {
+      cantidadEmpaques += cantidad;
+      valorEmpaques += cantidad * 500;
+    }
+
     resumen.push({
       tipo: "Adicional",
       producto: adicional,
