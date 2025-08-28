@@ -97,6 +97,7 @@ export const getNextScreen = async (decryptedBody) => {
         return {
           ...SCREEN_RESPONSES.MET_ENTREGA,
           data: {
+            chk_recoge: false,
             ...data,
           },
         };
