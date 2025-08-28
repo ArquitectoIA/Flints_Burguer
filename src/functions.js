@@ -15,8 +15,8 @@ export function generarDatosPedido(data) {
     const precioUnitario = menu[producto] || 0;
     const subtotal = precioUnitario * cantidad;
     valorProductos += subtotal;
-    cantidadEmpaques += 1;
-    valorEmpaques += 1000;
+    cantidadEmpaques += cantidad;
+    valorEmpaques += cantidad * 1000;
 
     resumen.push({
       tipo: "Producto",
