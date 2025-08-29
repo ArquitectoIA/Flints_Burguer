@@ -98,4 +98,13 @@ export const bebidas = {
   "Jugo Natural Uva": 10000,
   Cerezada: 10000,
   Maracumango: 10000,
+  "Sprite 400ml": 4000,
+  "Cuatro 400ml": 4000,
+  "Coca-Cola 400ml": 4000,
+  "Sprite 1.5L": 8000,
+  "Cuatro 1.5L": 8000,
+  "Coca-Cola 1.5L": 9000,
+  "Coca-Cola 2lts": 12000,
+  "Agua con gas 600ml": 3500,
+  "Agua sin gas 600ml": 3500,
 };
