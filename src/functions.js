@@ -41,7 +41,7 @@ export function generarDatosPedido(data) {
 
     if (adicional === "Porción de Papa Grande") {
       cantidadEmpaques += cantidad;
-      valorEmpaques += cantidad * 500;
+      valorEmpaques += cantidad * 1000;
     }
 
     resumen.push({
